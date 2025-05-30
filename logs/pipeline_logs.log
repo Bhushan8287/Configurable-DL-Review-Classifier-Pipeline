@@ -1,0 +1,38 @@
+2025-05-30 09:32:16-Loading_config_file_component-INFO-========== Starting Config File Component ==========
+2025-05-30 09:32:16-Loading_config_file_component-INFO-Trying to load the config file to access the data inside it
+2025-05-30 09:32:16-Loading_config_file_component-INFO-Config file has been succesfully loaded
+2025-05-30 09:32:16-Loading_config_file_component-INFO-========== Finished Config File Component ==========
+
+2025-05-30 09:32:32-Pipeline_component-INFO-Pipeline execution has started
+2025-05-30 09:32:32-Dataset_loading_component-INFO-========== Starting Loading Data Component ==========
+2025-05-30 09:32:32-Dataset_loading_component-INFO-The dataset is being loaded
+2025-05-30 09:32:33-Dataset_loading_component-INFO-Dataset has been loaded and is now sent for cleaning
+2025-05-30 09:32:33-Dataset_loading_component-INFO-The dataset shape is: (40000, 2)
+2025-05-30 09:32:33-Dataset_loading_component-INFO-========== Finished Loading Data Component ==========
+
+2025-05-30 09:32:33-Data_cleaning_component-INFO-========== Starting Data Cleaning Component ==========
+2025-05-30 09:32:33-Data_cleaning_component-INFO-Text converted to lower case
+2025-05-30 09:32:33-Data_cleaning_component-INFO-HTML tags removed from text
+2025-05-30 09:32:33-Data_cleaning_component-INFO-URls removed from text
+2025-05-30 09:32:33-Data_cleaning_component-INFO-Mentions removed form text
+2025-05-30 09:32:33-Data_cleaning_component-INFO-Hastags sign removed from text
+2025-05-30 09:32:34-Data_cleaning_component-INFO-Special characters removed form text
+2025-05-30 09:32:36-Data_cleaning_component-INFO-Extra white spaces removed from the text
+2025-05-30 09:32:37-Data_cleaning_component-INFO-Cleaned dataset file saved
+2025-05-30 09:32:37-Data_cleaning_component-INFO-========== Finished Data Cleaning Component ==========
+
+2025-05-30 09:32:37-Data_splitting_component-INFO-========== Starting Splitting Data Component ==========
+2025-05-30 09:32:37-Data_splitting_component-INFO-The dataset is now being split into "X", "y" and "train" and "test" splits
+2025-05-30 09:32:37-Data_splitting_component-INFO-Split shapes X_train: (32000, 1), X_test: (8000, 1), y_train: (32000,), y_test: (8000,)
+2025-05-30 09:32:37-Data_splitting_component-INFO-The dataset has been successfully split into training and testing sets and are returned
+2025-05-30 09:32:37-Data_splitting_component-INFO-========== Finished Splitting Data Component ==========
+
+2025-05-30 09:32:37-Tokenize_text_component-INFO-========== Starting Tokenize Text Component ==========
+2025-05-30 09:32:37-Tokenize_text_component-INFO-Text is being tokenized
+2025-05-30 09:32:47-Tokenize_text_component-INFO-tokenizer object saved
+2025-05-30 09:32:47-Tokenize_text_component-INFO-padding done
+2025-05-30 09:32:47-Tokenize_text_component-INFO-max_length object saved
+2025-05-30 09:32:47-Tokenize_text_component-INFO-Tokenization of text completed
+2025-05-30 09:32:47-Tokenize_text_component-INFO-========== Finished Tokenize Text Component ==========
+
+2025-05-30 09:32:47-Pipeline_component-INFO-Pipeline execution has finished

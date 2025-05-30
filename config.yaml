@@ -1,0 +1,38 @@
+project_name: "DL Movie Classifier"
+
+dataset:
+  path: "C:/Users/BW/Desktop/DL movie review classifier/dataset/movie.csv"
+  cleaned_dataset_save_path: "C:/Users/BW/Desktop/DL movie review classifier/dataset/cleaned_dataset.csv"
+  text_column: "text"
+  label_column: "label"
+  
+  
+dataset_splitting:
+  test_size: 0.2
+  random_state: 42
+
+tokenization:
+  num_of_words: 10000
+  max_length: 200
+  oov_token: "<OOV>"
+  padding: "post"
+  truncating: "post"
+  save_tokenizer_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/tokenizer.joblib"
+  save_max_length: "C:/Users/BW/Desktop/DL movie review classifier/outputs/max_length.joblib"
+
+model:
+  type: "bilstm"
+  embedding_dim: 128
+  lstm_units: 64
+  dropout: 0.5
+
+training:
+  batch_size: 32
+  epochs: 10
+  validation_split: 0.2
+  optimizer: "adam"
+  learning_rate: 0.001
+
+logging:
+  log_file: "logs/pipeline.log"
+  level: "INFO"
