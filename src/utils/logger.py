@@ -1,12 +1,18 @@
 import os
+import logging
+import warnings
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-import logging
+# Suppress specific deprecation warnings globally (e.g., Keras input_length)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
 
 # Suppress verbose logs from TensorFlow, h5py, and matplotlib
 logging.getLogger('tensorflow').setLevel(logging.WARNING)
 logging.getLogger('h5py').setLevel(logging.WARNING)
 logging.getLogger('matplotlib').setLevel(logging.WARNING)
+logging.getLogger('PIL').setLevel(logging.WARNING)
 
 # Logging config function
 def get_logging_config():
@@ -51,8 +57,20 @@ logger_for_data_splitting.setLevel(get_logging_config().DEBUG)
 logger_for_tokenizer_text = logging_config.getLogger('Tokenize_text_component')
 logger_for_tokenizer_text.setLevel(get_logging_config().DEBUG)
 
-logger_for_model_trainer = logging_config.getLogger('Model_trainer_component')
-logger_for_model_trainer.setLevel(get_logging_config().DEBUG)
+logger_for_bilstm_model = logging_config.getLogger('BILSTM_model_component')
+logger_for_bilstm_model.setLevel(get_logging_config().DEBUG)
+
+logger_for_lstm_model = logging_config.getLogger('LSTM_model_component')
+logger_for_lstm_model.setLevel(get_logging_config().DEBUG)
+
+logger_for_gru_model = logging_config.getLogger('GRU_RNN_model_component')
+logger_for_gru_model.setLevel(get_logging_config().DEBUG)
+
+logger_for_dispatch_training = logging_config.getLogger('Dispatch_training_component')
+logger_for_dispatch_training.setLevel(get_logging_config().DEBUG)
+
+logger_for_helper_functions = logging_config.getLogger('Helpers_function_component')
+logger_for_helper_functions.setLevel(get_logging_config().DEBUG)
 
 logger_for_evaluater = logging_config.getLogger('Evaluater_component')
 logger_for_evaluater.setLevel(get_logging_config().DEBUG)

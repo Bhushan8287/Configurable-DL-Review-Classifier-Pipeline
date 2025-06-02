@@ -20,18 +20,87 @@ tokenization:
   save_tokenizer_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/tokenizer.joblib"
   save_max_length: "C:/Users/BW/Desktop/DL movie review classifier/outputs/max_length.joblib"
 
-model:
-  type: "bilstm"
-  embedding_dim: 128
-  lstm_units: 64
-  dropout: 0.5
+model_to_train: "gru_rnn" # options available: ['bilstm', 'lstm', 'gru_rnn']
 
-training:
-  batch_size: 32
-  epochs: 10
+bilstm_model:
+  embedding_dim: 128
+  bilstm_units_first_layer: 128
+  bilstm_units_second_layer: 64
+  dropout: 0.5
+  activation_mid_layer: "relu"
+
+  model_compile_loss: "binary_crossentropy"
+  adam_optimizer_learning_rate: 0.001
+
+  epochs: 15
+  batch_size: 128
   validation_split: 0.2
-  optimizer: "adam"
-  learning_rate: 0.001
+  verbose: 0
+
+  early_stopping_moniter: "val_loss"
+  patience: 3
+
+  model_checkpoint_moniter: "val_loss"
+  mode: "min"
+
+  save_model_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/bilstm_trained_model.keras"
+  save_plot_path : "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots/bilstm_accuracy_and_loss_over_epochs.png"
+  save_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics/bilstm_training_metrics.json"
+
+lstm_model:
+  embedding_dim: 128
+  lstm_units_first_layer: 128
+  lstm_units_second_layer: 64
+  dropout: 0.5
+  activation_mid_layer: "relu"
+
+  model_compile_loss: "binary_crossentropy"
+  adam_optimizer_learning_rate: 0.001
+
+  epochs: 15
+  batch_size: 128
+  validation_split: 0.2
+  verbose: 0
+
+  early_stopping_moniter: "val_loss"
+  patience: 3
+
+  model_checkpoint_moniter: "val_loss"
+  mode: "min"
+
+  save_model_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/lstm_trained_model.keras"
+  save_plot_path : "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots/lstm_accuracy_and_loss_over_epochs.png"
+  save_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics/lstm_training_metrics.json"
+
+gru_rnn_model:
+  embedding_dim: 128
+  grurnn_units_first_layer: 128
+  grurnn_units_second_layer: 64
+  dropout: 0.5
+  activation_mid_layer: "relu"
+
+  model_compile_loss: "binary_crossentropy"
+  adam_optimizer_learning_rate: 0.001
+
+  epochs: 15
+  batch_size: 128
+  validation_split: 0.2
+  verbose: 0
+
+  early_stopping_moniter: "val_loss"
+  patience: 3
+
+  model_checkpoint_moniter: "val_loss"
+  mode: "min"
+
+  save_model_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/gru_rnn_trained_model.keras"
+  save_plot_path : "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots/gru_rnn_accuracy_and_loss_over_epochs.png"
+  save_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics/gru_rnn_training_metrics.json"
+
+
+
+
+
 
 logging:
   log_file: "logs/pipeline.log"
