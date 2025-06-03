@@ -72,7 +72,7 @@ logger_for_dispatch_training.setLevel(get_logging_config().DEBUG)
 logger_for_helper_functions = logging_config.getLogger('Helpers_function_component')
 logger_for_helper_functions.setLevel(get_logging_config().DEBUG)
 
-logger_for_evaluater = logging_config.getLogger('Evaluater_component')
+logger_for_evaluater = logging_config.getLogger('Model_evaluater_component')
 logger_for_evaluater.setLevel(get_logging_config().DEBUG)
 
 logger_for_threshold_finder = logging_config.getLogger('Threshold_finder_component')

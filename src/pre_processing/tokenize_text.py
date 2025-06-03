@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
 from src.config.config_loader import get_config
-import joblib
+import joblib, json
 from src.utils.logger import logger_for_tokenizer_text, log_component_start, log_component_end
 import pandas as pd
 
@@ -83,8 +83,8 @@ def text_tokenizer(xtrain, ytrain, xtest, ytest):
         logger_for_tokenizer_text.info('padding done')
 
         # Save max_length used for padding
-        with open(save_max_length_obj, 'wb') as file:
-            joblib.dump(max_length, file)
+        with open(save_max_length_obj, 'w') as file:
+            json.dump(max_length, file, indent=4)
         logger_for_tokenizer_text.info('max_length object saved')
         logger_for_tokenizer_text.info('Tokenization of text completed')
 

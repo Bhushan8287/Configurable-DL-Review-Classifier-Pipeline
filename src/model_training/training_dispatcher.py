@@ -26,6 +26,8 @@ def dispatch_training(xtrain_padded_sequences, ytrain, xtest_padded_sequences, y
         Unchanged test sequences, returned for evaluation or further processing.
     ytest : array-like
         Unchanged test labels, returned for evaluation or further processing.
+    model_to_use:
+        Unchanged, returned for further use
 
     Raises
     ------
@@ -42,7 +44,7 @@ def dispatch_training(xtrain_padded_sequences, ytrain, xtest_padded_sequences, y
             xtest_padded_sequences, ytest = bilstm(xtrain_padded_sequences, ytrain, xtest_padded_sequences, ytest)
             logger_for_dispatch_training.info('Bilstm model was trained and test splits were returned for evaluation')
             log_component_end(logger_for_dispatch_training, 'Dispatcher Training Component')
-            return xtest_padded_sequences, ytest
+            return xtest_padded_sequences, ytest, model_to_use
 
         # If user selected LSTM model
         elif model_to_use == 'lstm':
@@ -50,7 +52,7 @@ def dispatch_training(xtrain_padded_sequences, ytrain, xtest_padded_sequences, y
             xtest_padded_sequences, ytest = lstm(xtrain_padded_sequences, ytrain, xtest_padded_sequences, ytest)
             logger_for_dispatch_training.info('Lstm model was trained and test splits were returned for evaluation')
             log_component_end(logger_for_dispatch_training, 'Dispatcher Training Component')
-            return xtest_padded_sequences, ytest
+            return xtest_padded_sequences, ytest, model_to_use
 
         # If user selected GRU model
         elif model_to_use == 'gru_rnn':
@@ -58,9 +60,10 @@ def dispatch_training(xtrain_padded_sequences, ytrain, xtest_padded_sequences, y
             xtest_padded_sequences, ytest = gru(xtrain_padded_sequences, ytrain, xtest_padded_sequences, ytest)
             logger_for_dispatch_training.info('Gru rnn model was trained and test splits were returned for evaluation')
             log_component_end(logger_for_dispatch_training, 'Dispatcher Training Component')
-            return xtest_padded_sequences, ytest
+            return xtest_padded_sequences, ytest, model_to_use
 
     except Exception as dispatch_er:
         # Log any error encountered during model dispatch
         logger_for_dispatch_training.debug(f'Error encountered during dispatching. error: {dispatch_er}')
         log_component_end(logger_for_dispatch_training, 'Dispatcher Training Component')
+        raise

@@ -1,107 +1,104 @@
-project_name: "DL Movie Classifier"
-
+# Pre-processing configurations
 dataset:
-  path: "C:/Users/BW/Desktop/DL movie review classifier/dataset/movie.csv"
-  cleaned_dataset_save_path: "C:/Users/BW/Desktop/DL movie review classifier/dataset/cleaned_dataset.csv"
-  text_column: "text"
-  label_column: "label"
-  
-  
+  path: "C:/Users/BW/Desktop/DL movie review classifier/dataset/movie.csv"  # Raw dataset path
+  cleaned_dataset_save_path: "C:/Users/BW/Desktop/DL movie review classifier/dataset/cleaned_dataset.csv"  # Location to save the cleaned dataset
+  text_column: "text"  # Column in CSV containing the input text data
+  label_column: "label"  # Column in CSV containing the labels (0 or 1)
+
 dataset_splitting:
-  test_size: 0.2
-  random_state: 42
+  test_size: 0.2  # Percentage of data reserved for testing (20%)
+  random_state: 42  # Seed value for reproducibility of data split
 
 tokenization:
-  num_of_words: 10000
-  max_length: 200
-  oov_token: "<OOV>"
-  padding: "post"
-  truncating: "post"
-  save_tokenizer_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/tokenizer.joblib"
-  save_max_length: "C:/Users/BW/Desktop/DL movie review classifier/outputs/max_length.joblib"
+  num_of_words: 10000  # Vocabulary size limit for tokenization
+  max_length: 200  # Maximum length of padded sequences
+  oov_token: "<OOV>"  # Token used for out-of-vocabulary words
+  padding: "post"  # Padding applied at the end of sequences
+  truncating: "post"  # Truncating applied at the end of sequences
+  save_tokenizer_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/preprocessing_artifacts/tokenizer.joblib"  # Save path for tokenizer object
+  save_max_length: "C:/Users/BW/Desktop/DL movie review classifier/outputs/preprocessing_artifacts/max_length.json"  # Save path for max sequence length info
 
-model_to_train: "gru_rnn" # options available: ['bilstm', 'lstm', 'gru_rnn']
+# Update these for model training and evaluation
+model_to_train: "gru_rnn"  # Selected model to train: options = ['bilstm', 'lstm', 'gru_rnn']
+model_to_load_for_evaluation: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/gru_rnn_trained_model.keras"  # Update the model file name as same as selected model to train
+batch_size_to_use_for_evaluation: 128  # Batch size during model evaluation
+model_evaluation_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics"  # Directory to save evaluation metrics
+roc_curve_plot_savepath: "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots"  # Directory to save ROC curve plots
+optimal_threshold_value_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models"  # Location to save the optimal ROC threshold value
+classification_metrics_save_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics"  # Location to save classification report and metrics
 
+# Models configurations
 bilstm_model:
-  embedding_dim: 128
-  bilstm_units_first_layer: 128
-  bilstm_units_second_layer: 64
-  dropout: 0.5
-  activation_mid_layer: "relu"
+  embedding_dim: 128  # Size of the embedding vectors
+  bilstm_units_first_layer: 128  # Units in the first BiLSTM layer
+  bilstm_units_second_layer: 64  # Units in the second BiLSTM layer
+  dropout: 0.5  # Dropout rate to prevent overfitting
+  activation_mid_layer: "relu"  # Activation function in intermediate layers
 
-  model_compile_loss: "binary_crossentropy"
-  adam_optimizer_learning_rate: 0.001
+  model_compile_loss: "binary_crossentropy"  # Loss function for binary classification
+  adam_optimizer_learning_rate: 0.001  # Learning rate for Adam optimizer
 
-  epochs: 15
-  batch_size: 128
-  validation_split: 0.2
-  verbose: 0
+  epochs: 15  # Number of training epochs
+  batch_size: 128  # Training batch size
+  validation_split: 0.2  # Portion of training data used for validation
+  verbose: 0  # Verbosity level for training output
 
-  early_stopping_moniter: "val_loss"
-  patience: 3
+  early_stopping_moniter: "val_loss"  # Metric to monitor for early stopping
+  patience: 3  # Number of epochs with no improvement before stopping
 
-  model_checkpoint_moniter: "val_loss"
-  mode: "min"
+  model_checkpoint_moniter: "val_loss"  # Metric to monitor for model checkpoint
+  mode: "min"  # Minimize the monitored metric
 
-  save_model_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/bilstm_trained_model.keras"
-  save_plot_path : "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots/bilstm_accuracy_and_loss_over_epochs.png"
-  save_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics/bilstm_training_metrics.json"
+  save_model_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/bilstm_trained_model.keras"  # Save path for trained BiLSTM model
+  save_plot_path : "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots/bilstm_accuracy_and_loss_over_epochs.png"  # Path to save accuracy/loss plot
+  save_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics/bilstm_training_metrics.json"  # Path to save training metrics as JSON
 
 lstm_model:
-  embedding_dim: 128
-  lstm_units_first_layer: 128
-  lstm_units_second_layer: 64
-  dropout: 0.5
-  activation_mid_layer: "relu"
+  embedding_dim: 128  # Embedding dimension
+  lstm_units_first_layer: 128  # Units in the first LSTM layer
+  lstm_units_second_layer: 64  # Units in the second LSTM layer
+  dropout: 0.5  # Dropout to prevent overfitting
+  activation_mid_layer: "relu"  # Activation used in hidden layers
 
-  model_compile_loss: "binary_crossentropy"
-  adam_optimizer_learning_rate: 0.001
+  model_compile_loss: "binary_crossentropy"  # Loss function
+  adam_optimizer_learning_rate: 0.001  # Learning rate for optimizer
 
-  epochs: 15
-  batch_size: 128
-  validation_split: 0.2
-  verbose: 0
+  epochs: 15  # Training epochs
+  batch_size: 128  # Batch size
+  validation_split: 0.2  # Fraction of training data for validation
+  verbose: 0  # Training verbosity
 
-  early_stopping_moniter: "val_loss"
-  patience: 3
+  early_stopping_moniter: "val_loss"  # Monitor metric for early stopping
+  patience: 3  # Early stopping patience
 
-  model_checkpoint_moniter: "val_loss"
-  mode: "min"
+  model_checkpoint_moniter: "val_loss"  # Monitor metric for checkpointing
+  mode: "min"  # Direction of metric optimization
 
-  save_model_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/lstm_trained_model.keras"
-  save_plot_path : "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots/lstm_accuracy_and_loss_over_epochs.png"
-  save_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics/lstm_training_metrics.json"
+  save_model_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/lstm_trained_model.keras"  # Save path for trained LSTM model
+  save_plot_path : "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots/lstm_accuracy_and_loss_over_epochs.png"  # Save path for loss/accuracy plots
+  save_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics/lstm_training_metrics.json"  # Training metrics output file
 
 gru_rnn_model:
-  embedding_dim: 128
-  grurnn_units_first_layer: 128
-  grurnn_units_second_layer: 64
-  dropout: 0.5
-  activation_mid_layer: "relu"
+  embedding_dim: 128  # Embedding vector size
+  grurnn_units_first_layer: 128  # Units in the first GRU layer
+  grurnn_units_second_layer: 64  # Units in the second GRU layer
+  dropout: 0.5  # Dropout to reduce overfitting
+  activation_mid_layer: "relu"  # Activation function for intermediate layers
 
-  model_compile_loss: "binary_crossentropy"
-  adam_optimizer_learning_rate: 0.001
+  model_compile_loss: "binary_crossentropy"  # Binary classification loss
+  adam_optimizer_learning_rate: 0.001  # Learning rate for optimizer
 
-  epochs: 15
-  batch_size: 128
-  validation_split: 0.2
-  verbose: 0
+  epochs: 15  # Number of epochs to train
+  batch_size: 128  # Batch size
+  validation_split: 0.2  # Validation split
+  verbose: 0  # Verbosity mode for training
 
-  early_stopping_moniter: "val_loss"
-  patience: 3
+  early_stopping_moniter: "val_loss"  # Early stopping criterion
+  patience: 3  # Patience for early stopping
 
-  model_checkpoint_moniter: "val_loss"
-  mode: "min"
+  model_checkpoint_moniter: "val_loss"  # Model checkpoint monitor metric
+  mode: "min"  # Minimize the monitored metric
 
-  save_model_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/gru_rnn_trained_model.keras"
-  save_plot_path : "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots/gru_rnn_accuracy_and_loss_over_epochs.png"
-  save_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics/gru_rnn_training_metrics.json"
-
-
-
-
-
-
-logging:
-  log_file: "logs/pipeline.log"
-  level: "INFO"
+  save_model_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/gru_rnn_trained_model.keras"  # Path to save GRU model
+  save_plot_path : "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots/gru_rnn_accuracy_and_loss_over_epochs.png"  # Plot output location
+  save_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics/gru_rnn_training_metrics.json"  # Training metrics path
