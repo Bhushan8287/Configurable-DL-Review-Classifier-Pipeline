@@ -117,8 +117,8 @@ tokenization:
 ### 1. Clone the Repo
 
 ```bash
-git clone 
-cd ConfigurableDLReviewClassifierPipeline
+git clone https://github.com/Bhushan8287/Configurable-DL-Review-Classifier-Pipeline.git
+cd Configurable-DL-Review-Classifier-Pipeline
 ```
 
 ### 2. Install Requirements
