@@ -3,13 +3,35 @@ from src.utils.logger import logger_for_data_cleaning, log_component_start, log_
 from src.config.config_loader import get_config
 
 def clean_text(dataset):
+    """
+    Cleans the text data in the dataset for NLP tasks by applying multiple preprocessing steps such as 
+    lowercasing, removing HTML tags, URLs, mentions, hashtags, special characters, and extra whitespace.
+
+    Parameters
+    ----------
+    dataset : pandas.DataFrame
+        The input dataset containing a text column to be cleaned. The column name is fetched from the config file.
+
+    Returns
+    -------
+    pandas.DataFrame
+        The cleaned dataset with the same structure as the input but with the text column processed.
+
+    Raises
+    ------
+    Exception
+        If any error occurs during the cleaning process, it is logged and raised for debugging purposes.
+
+    Notes
+    -----
+    - The function relies on external configuration from a YAML file using `get_config()`.
+    - Logging is used extensively to track each step of the cleaning process.
+    - The cleaned dataset is saved to a file path defined in the configuration.
+    """
     config = get_config()
     dataset_text_column = config['dataset']['text_column']
     cleaned_dataset_save_path = config['dataset']['cleaned_dataset_save_path']
     try:
-        """
-        Deep cleans text for DL/NLP models — removes special characters, URLs, HTML, emojis, etc.
-        """
         log_component_start(logger_for_data_cleaning, 'Data Cleaning Component')
 
         # Lowercase
