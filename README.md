@@ -38,7 +38,7 @@ This project automates the full ML lifecycle: from data preprocessing, splitting
 ## 📂 Project Structure
 
 ```
-ConfigurableDLReviewClassifierPipeline/
+Configurable-DL-Review-Classifier-Pipeline/
 │
 ├── dataset/                      # Raw and cleaned dataset
 │   └── movie.csv, cleaned_dataset.csv
