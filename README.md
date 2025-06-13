@@ -130,7 +130,7 @@ pip install -r requirements.txt
 ### 3. Update Config
 
 Update `config.yaml` paths and parameters to match your environment.
-Then point `config_loader.py` to your `config.yaml` path.
+Then update the path in `config_loader.py` to point towards`config.yaml` file path
 
 ### 4. Run the Pipeline
 
