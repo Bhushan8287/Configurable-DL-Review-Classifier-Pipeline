@@ -75,7 +75,7 @@ def lstm(xtrain_padded_sequences, ytrain, xtest_padded_sequences, ytest):
         # Start training the model
         logger_for_lstm_model.info('LSTM model training started')
         history = model.fit(
-            xtrain_padded_sequences[:1000], ytrain[:1000],  # Subset training for quick iteration/testing
+            xtrain_padded_sequences, ytrain, 
             epochs=epochs, batch_size=batch_size,
             validation_split=validation_split,
             callbacks=[early_stopping, checkpoint],

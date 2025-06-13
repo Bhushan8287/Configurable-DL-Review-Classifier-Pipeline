@@ -1,0 +1,204 @@
+2025-06-13 08:38:37-Loading_config_file_component-INFO-========== Starting Config File Component ==========
+2025-06-13 08:38:37-Loading_config_file_component-INFO-Trying to load the config file to access the data inside it
+2025-06-13 08:38:37-Loading_config_file_component-INFO-Config file has been succesfully loaded
+2025-06-13 08:38:37-Loading_config_file_component-INFO-========== Finished Config File Component ==========
+
+2025-06-13 08:38:54-Pipeline_component-INFO-Pipeline execution has started
+2025-06-13 08:38:54-Dataset_loading_component-INFO-========== Starting Loading Data Component ==========
+2025-06-13 08:38:54-Dataset_loading_component-INFO-The dataset is being loaded
+2025-06-13 08:38:54-Dataset_loading_component-INFO-Dataset has been loaded and is now sent for cleaning
+2025-06-13 08:38:54-Dataset_loading_component-INFO-The dataset shape is: (40000, 2)
+2025-06-13 08:38:54-Dataset_loading_component-INFO-========== Finished Loading Data Component ==========
+
+2025-06-13 08:38:54-Data_cleaning_component-INFO-========== Starting Data Cleaning Component ==========
+2025-06-13 08:38:54-Data_cleaning_component-INFO-Text converted to lower case
+2025-06-13 08:38:55-Data_cleaning_component-INFO-HTML tags removed from text
+2025-06-13 08:38:55-Data_cleaning_component-INFO-URls removed from text
+2025-06-13 08:38:55-Data_cleaning_component-INFO-Mentions removed form text
+2025-06-13 08:38:55-Data_cleaning_component-INFO-Hastags sign removed from text
+2025-06-13 08:38:56-Data_cleaning_component-INFO-Special characters removed form text
+2025-06-13 08:38:57-Data_cleaning_component-INFO-Extra white spaces removed from the text
+2025-06-13 08:38:58-Data_cleaning_component-INFO-Cleaned dataset file saved
+2025-06-13 08:38:58-Data_cleaning_component-INFO-========== Finished Data Cleaning Component ==========
+
+2025-06-13 08:38:58-Data_splitting_component-INFO-========== Starting Splitting Data Component ==========
+2025-06-13 08:38:58-Data_splitting_component-INFO-The dataset is now being split into "X", "y" and "train" and "test" splits
+2025-06-13 08:38:59-Data_splitting_component-INFO-Splits saved successfully to CSV files
+2025-06-13 08:38:59-Data_splitting_component-INFO-Split shapes X_train: (32000, 1), X_test: (8000, 1), y_train: (32000,), y_test: (8000,)
+2025-06-13 08:38:59-Data_splitting_component-INFO-The dataset has been successfully split into training and testing sets and are returned
+2025-06-13 08:38:59-Data_splitting_component-INFO-========== Finished Splitting Data Component ==========
+
+2025-06-13 08:38:59-Tokenize_text_component-INFO-========== Starting Tokenize Text Component ==========
+2025-06-13 08:38:59-Tokenize_text_component-INFO-Text is being tokenized
+2025-06-13 08:39:08-Tokenize_text_component-INFO-tokenizer object saved
+2025-06-13 08:39:08-Tokenize_text_component-INFO-padding done
+2025-06-13 08:39:08-Tokenize_text_component-INFO-max_length object saved
+2025-06-13 08:39:08-Tokenize_text_component-INFO-Tokenization of text completed
+2025-06-13 08:39:08-Tokenize_text_component-INFO-========== Finished Tokenize Text Component ==========
+
+2025-06-13 08:39:08-Dispatch_training_component-INFO-========== Starting Dispatcher Training Component ==========
+2025-06-13 08:39:08-BILSTM_model_component-INFO-========== Starting BILSTM Model Componet ==========
+2025-06-13 08:39:08-BILSTM_model_component-INFO-Bilstm model training started
+2025-06-13 08:46:37-BILSTM_model_component-INFO-Model training finished
+2025-06-13 08:46:37-BILSTM_model_component-INFO-Bilstm model saved
+2025-06-13 08:46:37-Helpers_function_component-INFO-Plot saved
+2025-06-13 08:46:37-Helpers_function_component-INFO-Metrics saved
+2025-06-13 08:46:37-BILSTM_model_component-INFO-========== Finished BILSTM Model Componet ==========
+
+2025-06-13 08:46:37-Dispatch_training_component-INFO-Bilstm model was trained and test splits were returned for evaluation
+2025-06-13 08:46:37-Dispatch_training_component-INFO-========== Finished Dispatcher Training Component ==========
+
+2025-06-13 08:46:37-Model_evaluater_component-INFO-========== Starting Model Evaluater Component ==========
+2025-06-13 08:46:44-Model_evaluater_component-INFO-Model evaluated
+2025-06-13 08:46:44-Model_evaluater_component-INFO-Evaluation metrics saved for model: bilstm
+2025-06-13 08:46:44-Model_evaluater_component-INFO-========== Finished Model Evaluater Component ==========
+
+2025-06-13 08:46:44-Threshold_finder_component-INFO-========== Starting ROC Thresholding Component ==========
+2025-06-13 08:46:44-Threshold_finder_component-INFO-Getting predictions using the trained bilstm model
+2025-06-13 08:46:51-Threshold_finder_component-INFO-Prediction process completed succesfully
+2025-06-13 08:46:51-Threshold_finder_component-INFO-Computing (fpr, tpr and thresholds)
+2025-06-13 08:46:51-Threshold_finder_component-INFO-ROC curve plot saved succesfully
+2025-06-13 08:46:51-Threshold_finder_component-INFO-Finding optimal threshold
+2025-06-13 08:46:51-Threshold_finder_component-INFO-Threshold value saved succesfully
+2025-06-13 08:46:51-Threshold_finder_component-INFO-Using the found optimal threshold to classify predictions and calculating metrics
+2025-06-13 08:46:51-Threshold_finder_component-INFO-Metrics computed succesfully
+2025-06-13 08:46:51-Threshold_finder_component-INFO-Mertics saved succesfully
+2025-06-13 08:46:51-Threshold_finder_component-INFO-========== Finished ROC Thresholding Component ==========
+
+2025-06-13 08:46:51-Pipeline_component-INFO-Pipeline execution has finished
+2025-06-13 08:59:08-Loading_config_file_component-INFO-========== Starting Config File Component ==========
+2025-06-13 08:59:08-Loading_config_file_component-INFO-Trying to load the config file to access the data inside it
+2025-06-13 08:59:09-Loading_config_file_component-INFO-Config file has been succesfully loaded
+2025-06-13 08:59:09-Loading_config_file_component-INFO-========== Finished Config File Component ==========
+
+2025-06-13 08:59:13-Pipeline_component-INFO-Pipeline execution has started
+2025-06-13 08:59:13-Dataset_loading_component-INFO-========== Starting Loading Data Component ==========
+2025-06-13 08:59:13-Dataset_loading_component-INFO-The dataset is being loaded
+2025-06-13 08:59:13-Dataset_loading_component-INFO-Dataset has been loaded and is now sent for cleaning
+2025-06-13 08:59:13-Dataset_loading_component-INFO-The dataset shape is: (40000, 2)
+2025-06-13 08:59:13-Dataset_loading_component-INFO-========== Finished Loading Data Component ==========
+
+2025-06-13 08:59:13-Data_cleaning_component-INFO-========== Starting Data Cleaning Component ==========
+2025-06-13 08:59:13-Data_cleaning_component-INFO-Text converted to lower case
+2025-06-13 08:59:13-Data_cleaning_component-INFO-HTML tags removed from text
+2025-06-13 08:59:14-Data_cleaning_component-INFO-URls removed from text
+2025-06-13 08:59:14-Data_cleaning_component-INFO-Mentions removed form text
+2025-06-13 08:59:14-Data_cleaning_component-INFO-Hastags sign removed from text
+2025-06-13 08:59:14-Data_cleaning_component-INFO-Special characters removed form text
+2025-06-13 08:59:16-Data_cleaning_component-INFO-Extra white spaces removed from the text
+2025-06-13 08:59:17-Data_cleaning_component-INFO-Cleaned dataset file saved
+2025-06-13 08:59:17-Data_cleaning_component-INFO-========== Finished Data Cleaning Component ==========
+
+2025-06-13 08:59:17-Data_splitting_component-INFO-========== Starting Splitting Data Component ==========
+2025-06-13 08:59:17-Data_splitting_component-INFO-The dataset is now being split into "X", "y" and "train" and "test" splits
+2025-06-13 08:59:18-Data_splitting_component-INFO-Splits saved successfully to CSV files
+2025-06-13 08:59:18-Data_splitting_component-INFO-Split shapes X_train: (32000, 1), X_test: (8000, 1), y_train: (32000,), y_test: (8000,)
+2025-06-13 08:59:18-Data_splitting_component-INFO-The dataset has been successfully split into training and testing sets and are returned
+2025-06-13 08:59:18-Data_splitting_component-INFO-========== Finished Splitting Data Component ==========
+
+2025-06-13 08:59:18-Tokenize_text_component-INFO-========== Starting Tokenize Text Component ==========
+2025-06-13 08:59:18-Tokenize_text_component-INFO-Text is being tokenized
+2025-06-13 08:59:27-Tokenize_text_component-INFO-tokenizer object saved
+2025-06-13 08:59:27-Tokenize_text_component-INFO-padding done
+2025-06-13 08:59:27-Tokenize_text_component-INFO-max_length object saved
+2025-06-13 08:59:27-Tokenize_text_component-INFO-Tokenization of text completed
+2025-06-13 08:59:27-Tokenize_text_component-INFO-========== Finished Tokenize Text Component ==========
+
+2025-06-13 08:59:27-Dispatch_training_component-INFO-========== Starting Dispatcher Training Component ==========
+2025-06-13 08:59:27-LSTM_model_component-INFO-========== Starting LSTM Model Componet ==========
+2025-06-13 08:59:27-LSTM_model_component-INFO-LSTM model training started
+2025-06-13 09:09:31-LSTM_model_component-INFO-Model training finished
+2025-06-13 09:09:31-LSTM_model_component-INFO-Lstm model saved
+2025-06-13 09:09:31-Helpers_function_component-INFO-Plot saved
+2025-06-13 09:09:31-Helpers_function_component-INFO-Metrics saved
+2025-06-13 09:09:31-LSTM_model_component-INFO-========== Finished LSTM Model Componet ==========
+
+2025-06-13 09:09:31-Dispatch_training_component-INFO-Lstm model was trained and test splits were returned for evaluation
+2025-06-13 09:09:31-Dispatch_training_component-INFO-========== Finished Dispatcher Training Component ==========
+
+2025-06-13 09:09:31-Model_evaluater_component-INFO-========== Starting Model Evaluater Component ==========
+2025-06-13 09:09:37-Model_evaluater_component-INFO-Model evaluated
+2025-06-13 09:09:37-Model_evaluater_component-INFO-Evaluation metrics saved for model: lstm
+2025-06-13 09:09:37-Model_evaluater_component-INFO-========== Finished Model Evaluater Component ==========
+
+2025-06-13 09:09:37-Threshold_finder_component-INFO-========== Starting ROC Thresholding Component ==========
+2025-06-13 09:09:37-Threshold_finder_component-INFO-Getting predictions using the trained lstm model
+2025-06-13 09:09:42-Threshold_finder_component-INFO-Prediction process completed succesfully
+2025-06-13 09:09:42-Threshold_finder_component-INFO-Computing (fpr, tpr and thresholds)
+2025-06-13 09:09:42-Threshold_finder_component-INFO-ROC curve plot saved succesfully
+2025-06-13 09:09:42-Threshold_finder_component-INFO-Finding optimal threshold
+2025-06-13 09:09:42-Threshold_finder_component-INFO-Threshold value saved succesfully
+2025-06-13 09:09:42-Threshold_finder_component-INFO-Using the found optimal threshold to classify predictions and calculating metrics
+2025-06-13 09:09:42-Threshold_finder_component-INFO-Metrics computed succesfully
+2025-06-13 09:09:42-Threshold_finder_component-INFO-Mertics saved succesfully
+2025-06-13 09:09:42-Threshold_finder_component-INFO-========== Finished ROC Thresholding Component ==========
+
+2025-06-13 09:09:42-Pipeline_component-INFO-Pipeline execution has finished
+2025-06-13 09:15:32-Loading_config_file_component-INFO-========== Starting Config File Component ==========
+2025-06-13 09:15:32-Loading_config_file_component-INFO-Trying to load the config file to access the data inside it
+2025-06-13 09:15:32-Loading_config_file_component-INFO-Config file has been succesfully loaded
+2025-06-13 09:15:32-Loading_config_file_component-INFO-========== Finished Config File Component ==========
+
+2025-06-13 09:15:36-Pipeline_component-INFO-Pipeline execution has started
+2025-06-13 09:15:36-Dataset_loading_component-INFO-========== Starting Loading Data Component ==========
+2025-06-13 09:15:36-Dataset_loading_component-INFO-The dataset is being loaded
+2025-06-13 09:15:37-Dataset_loading_component-INFO-Dataset has been loaded and is now sent for cleaning
+2025-06-13 09:15:37-Dataset_loading_component-INFO-The dataset shape is: (40000, 2)
+2025-06-13 09:15:37-Dataset_loading_component-INFO-========== Finished Loading Data Component ==========
+
+2025-06-13 09:15:37-Data_cleaning_component-INFO-========== Starting Data Cleaning Component ==========
+2025-06-13 09:15:37-Data_cleaning_component-INFO-Text converted to lower case
+2025-06-13 09:15:37-Data_cleaning_component-INFO-HTML tags removed from text
+2025-06-13 09:15:37-Data_cleaning_component-INFO-URls removed from text
+2025-06-13 09:15:37-Data_cleaning_component-INFO-Mentions removed form text
+2025-06-13 09:15:37-Data_cleaning_component-INFO-Hastags sign removed from text
+2025-06-13 09:15:38-Data_cleaning_component-INFO-Special characters removed form text
+2025-06-13 09:15:40-Data_cleaning_component-INFO-Extra white spaces removed from the text
+2025-06-13 09:15:40-Data_cleaning_component-INFO-Cleaned dataset file saved
+2025-06-13 09:15:40-Data_cleaning_component-INFO-========== Finished Data Cleaning Component ==========
+
+2025-06-13 09:15:40-Data_splitting_component-INFO-========== Starting Splitting Data Component ==========
+2025-06-13 09:15:40-Data_splitting_component-INFO-The dataset is now being split into "X", "y" and "train" and "test" splits
+2025-06-13 09:15:41-Data_splitting_component-INFO-Splits saved successfully to CSV files
+2025-06-13 09:15:41-Data_splitting_component-INFO-Split shapes X_train: (32000, 1), X_test: (8000, 1), y_train: (32000,), y_test: (8000,)
+2025-06-13 09:15:41-Data_splitting_component-INFO-The dataset has been successfully split into training and testing sets and are returned
+2025-06-13 09:15:41-Data_splitting_component-INFO-========== Finished Splitting Data Component ==========
+
+2025-06-13 09:15:41-Tokenize_text_component-INFO-========== Starting Tokenize Text Component ==========
+2025-06-13 09:15:41-Tokenize_text_component-INFO-Text is being tokenized
+2025-06-13 09:15:50-Tokenize_text_component-INFO-tokenizer object saved
+2025-06-13 09:15:51-Tokenize_text_component-INFO-padding done
+2025-06-13 09:15:51-Tokenize_text_component-INFO-max_length object saved
+2025-06-13 09:15:51-Tokenize_text_component-INFO-Tokenization of text completed
+2025-06-13 09:15:51-Tokenize_text_component-INFO-========== Finished Tokenize Text Component ==========
+
+2025-06-13 09:15:51-Dispatch_training_component-INFO-========== Starting Dispatcher Training Component ==========
+2025-06-13 09:15:51-GRU_RNN_model_component-INFO-========== Starting GRU RNN Model Component ==========
+2025-06-13 09:15:51-GRU_RNN_model_component-INFO-GRU model training started
+2025-06-13 09:20:29-GRU_RNN_model_component-INFO-Model training finished
+2025-06-13 09:20:29-GRU_RNN_model_component-INFO-GRU model saved
+2025-06-13 09:20:29-Helpers_function_component-INFO-Plot saved
+2025-06-13 09:20:29-Helpers_function_component-INFO-Metrics saved
+2025-06-13 09:20:29-GRU_RNN_model_component-INFO-========== Finished GRU RNN Model Component ==========
+
+2025-06-13 09:20:29-Dispatch_training_component-INFO-Gru rnn model was trained and test splits were returned for evaluation
+2025-06-13 09:20:29-Dispatch_training_component-INFO-========== Finished Dispatcher Training Component ==========
+
+2025-06-13 09:20:29-Model_evaluater_component-INFO-========== Starting Model Evaluater Component ==========
+2025-06-13 09:20:34-Model_evaluater_component-INFO-Model evaluated
+2025-06-13 09:20:34-Model_evaluater_component-INFO-Evaluation metrics saved for model: gru_rnn
+2025-06-13 09:20:34-Model_evaluater_component-INFO-========== Finished Model Evaluater Component ==========
+
+2025-06-13 09:20:34-Threshold_finder_component-INFO-========== Starting ROC Thresholding Component ==========
+2025-06-13 09:20:34-Threshold_finder_component-INFO-Getting predictions using the trained gru_rnn model
+2025-06-13 09:20:38-Threshold_finder_component-INFO-Prediction process completed succesfully
+2025-06-13 09:20:38-Threshold_finder_component-INFO-Computing (fpr, tpr and thresholds)
+2025-06-13 09:20:38-Threshold_finder_component-INFO-ROC curve plot saved succesfully
+2025-06-13 09:20:38-Threshold_finder_component-INFO-Finding optimal threshold
+2025-06-13 09:20:38-Threshold_finder_component-INFO-Threshold value saved succesfully
+2025-06-13 09:20:38-Threshold_finder_component-INFO-Using the found optimal threshold to classify predictions and calculating metrics
+2025-06-13 09:20:38-Threshold_finder_component-INFO-Metrics computed succesfully
+2025-06-13 09:20:38-Threshold_finder_component-INFO-Mertics saved succesfully
+2025-06-13 09:20:38-Threshold_finder_component-INFO-========== Finished ROC Thresholding Component ==========
+
+2025-06-13 09:20:38-Pipeline_component-INFO-Pipeline execution has finished

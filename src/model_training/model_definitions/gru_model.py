@@ -75,10 +75,10 @@ def gru(xtrain_padded_sequences, ytrain, xtest_padded_sequences, ytest):
         early_stopping = EarlyStopping(monitor=early_stopping_moniter, patience=early_stopping_patience, restore_best_weights=True)
         checkpoint = ModelCheckpoint(filepath=model_save_path, save_best_only=True, monitor=model_chckpoint_moniter, mode=model_chckpint_mode)
 
-        # Train the model (restricted to first 1000 samples for speed or debugging)
+        # Train the model
         logger_for_gru_model.info('GRU model training started')
         history = model.fit(
-            xtrain_padded_sequences[:1000], ytrain[:1000], 
+            xtrain_padded_sequences, ytrain, 
             epochs=epochs, batch_size=batch_size, 
             validation_split=validation_split, 
             callbacks=[early_stopping, checkpoint], 

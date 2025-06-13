@@ -8,6 +8,7 @@ dataset:
 dataset_splitting:
   test_size: 0.2  # Percentage of data reserved for testing (20%)
   random_state: 42  # Seed value for reproducibility of data split
+  split_save_path: C:/Users/BW/Desktop/DL movie review classifier/dataset # path to save train test splits
 
 tokenization:
   num_of_words: 10000  # Vocabulary size limit for tokenization
@@ -20,7 +21,7 @@ tokenization:
 
 # Update these for model training and evaluation
 model_to_train: "gru_rnn"  # Selected model to train: options = ['bilstm', 'lstm', 'gru_rnn']
-model_to_load_for_evaluation: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/gru_rnn_trained_model.keras"  # Update the model file name as same as selected model to train
+model_to_load_for_evaluation: "C:/Users/BW/Desktop/DL movie review classifier/outputs/trained_models/gru_rnn_trained_model.keras"  # Update the model file name as same as selected model to train for every pipeline run
 batch_size_to_use_for_evaluation: 128  # Batch size during model evaluation
 model_evaluation_metrics_path: "C:/Users/BW/Desktop/DL movie review classifier/outputs/metrics"  # Directory to save evaluation metrics
 roc_curve_plot_savepath: "C:/Users/BW/Desktop/DL movie review classifier/outputs/plots"  # Directory to save ROC curve plots
