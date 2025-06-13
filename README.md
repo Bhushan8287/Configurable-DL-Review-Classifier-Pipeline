@@ -18,6 +18,8 @@ This project automates the full ML lifecycle: from data preprocessing, splitting
 * 📊 Automatic saving of metrics, plots, models, tokenizer, thresholds
 * 📝 **Logging** for all components to trace pipeline steps
 * 🌐 **Streamlit** app for serving predictions (manual setup)
+* 
+Link to try the app: https://app-movie-review-classifier-app-mcjmogdijffh7c8dpnknlh.streamlit.app/
 
 ---
 
