@@ -1,5 +1,5 @@
 
-# 📦 ConfigurableDLReviewClassifierPipeline
+# 📦 Configurable-DL-Review-Classifier-Pipeline
 
 An end-to-end, **modular and configurable deep learning pipeline** for sentiment classification of movie reviews using RNN-based models — BiLSTM, LSTM, and GRU.
 
@@ -117,7 +117,7 @@ tokenization:
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/your-username/ConfigurableDLReviewClassifierPipeline.git
+git clone 
 cd ConfigurableDLReviewClassifierPipeline
 ```
 
@@ -182,7 +182,3 @@ Then open browser at: `http://localhost:8501`
 * Designing reusable, clean architecture for real-world projects
 * Logging, output traceability, and reproducibility
 * Trade-offs between manual vs. automated deployment
-
----
-
-Let me know if you'd like a matching `LICENSE`, project badge suggestions, or `README` badges added!
